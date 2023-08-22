@@ -10,11 +10,24 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         PopupMenuButton(
           icon: const Icon(Icons.menu),
+          onSelected: (value) => navigation(value),
           itemBuilder: (context) => [
-            const PopupMenuItem(child: Text('Contenido')),
-            const PopupMenuItem(child: Text('Personajes')),
-            const PopupMenuItem(child: Text('Episodios')),
-            const PopupMenuItem(child: Text('Escenarios'))
+            const PopupMenuItem(
+              child: Text('Contenido'),
+              value: '',
+            ),
+            const PopupMenuItem(
+              child: Text('Personajes'),
+              value: '/characters',
+            ),
+            const PopupMenuItem(
+              child: Text('Episodios'),
+              value: '/episodes',
+            ),
+            const PopupMenuItem(
+              child: Text('Escenarios'),
+              value: '/locations',
+            )
           ],
         )
       ],
@@ -23,4 +36,6 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => const Size(120, 80);
+
+  navigation(String value) {}
 }
