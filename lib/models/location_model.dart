@@ -1,32 +1,33 @@
 // To parse this JSON data, do
 //
-//     final Modelolocation = ModelolocationFromJson(jsonString);
+//     final LocationModel = LocationModelFromJson(jsonString);
 import 'dart:convert';
 
-ModeloLocation modeloLocationFromJson(String str) => ModeloLocation.fromJson(json.decode(str));
+LocationModel locationModelFromJson(String str) =>
+    LocationModel.fromJson(json.decode(str));
 
-String modeloLocationToJson(ModeloLocation data) => json.encode(data.toJson());
+String locationModelToJson(LocationModel data) => json.encode(data.toJson());
 
-class ModeloLocation {
-    final int id;
-    final String name;
-    final String type;
-    final String dimension;
-    final List<String> residents;
-    final String url;
-    final DateTime created;
+class LocationModel {
+  final int id;
+  final String name;
+  final String type;
+  final String dimension;
+  final List<String> residents;
+  final String url;
+  final DateTime created;
 
-    ModeloLocation({
-        required this.id,
-        required this.name,
-        required this.type,
-        required this.dimension,
-        required this.residents,
-        required this.url,
-        required this.created,
-    });
+  LocationModel({
+    required this.id,
+    required this.name,
+    required this.type,
+    required this.dimension,
+    required this.residents,
+    required this.url,
+    required this.created,
+  });
 
-    factory ModeloLocation.fromJson(Map<String, dynamic> json) => ModeloLocation(
+  factory LocationModel.fromJson(Map<String, dynamic> json) => LocationModel(
         id: json["id"],
         name: json["name"],
         type: json["type"],
@@ -34,9 +35,9 @@ class ModeloLocation {
         residents: List<String>.from(json["residents"].map((x) => x)),
         url: json["url"],
         created: DateTime.parse(json["created"]),
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
         "type": type,
@@ -44,5 +45,5 @@ class ModeloLocation {
         "residents": List<dynamic>.from(residents.map((x) => x)),
         "url": url,
         "created": created.toIso8601String(),
-    };
+      };
 }

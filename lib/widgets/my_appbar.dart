@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty/theme/my_colors.dart';
 import 'package:rick_and_morty/utils/navigation.dart';
 
 class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
@@ -6,34 +7,126 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-
     void navigation(String value) {
       navigator(context, value);
     }
 
-
     return AppBar(
-      title: Image.asset('../../assets/images/rick_and_morty/logo.png'),
+      backgroundColor: MyMaterialColor.mySecondColor,
+      title: Image.asset(
+        'assets/images/rick_and_morty/logo.png',
+        width: 50,
+        //height: 80,
+      ),
       actions: [
         PopupMenuButton(
-          icon: const Icon(Icons.menu),
+          color: MyMaterialColor.myColor.withAlpha(99),
+          icon: const Icon(
+            Icons.menu,
+            color: MyMaterialColor.myColor,
+          ),
           onSelected: (value) => navigation(value),
           itemBuilder: (context) => [
-            const PopupMenuItem(
+            PopupMenuItem(
+              enabled: false,
               value: '',
-              child: Text('Contenido'),
+              child: Stack(
+                children: [
+                  Center(
+                    child: Text(
+                      'Contenido',
+                      style: TextStyle(
+                        fontSize: 16,
+                        foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 2
+                          ..color = MyMaterialColor.mySecondColor,
+                      ),
+                    ),
+                  ),
+                  const Center(
+                    child: Text(
+                      'Contenido',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const PopupMenuItem(
+            PopupMenuItem(
               value: '/characters',
-              child: Text('Personajes'),
+              child: Stack(
+                children: [
+                  Text(
+                    'Personajes',
+                    style: TextStyle(
+                      fontSize: 16,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2
+                        ..color = MyMaterialColor.mySecondColor,
+                    ),
+                  ),
+                  const Text(
+                    'Personajes',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const PopupMenuItem(
+            PopupMenuItem(
               value: '/episodes',
-              child: Text('Episodios'),
+              child: Stack(
+                children: [
+                  Text(
+                    'Episodios',
+                    style: TextStyle(
+                      fontSize: 16,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2
+                        ..color = MyMaterialColor.mySecondColor,
+                    ),
+                  ),
+                  const Text(
+                    'Episodios',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const PopupMenuItem(
+            PopupMenuItem(
               value: '/locations',
-              child: Text('Escenarios'),
+              child: Stack(
+                children: [
+                  Text(
+                    'Escenarios',
+                    style: TextStyle(
+                      fontSize: 16,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2
+                        ..color = MyMaterialColor.mySecondColor,
+                    ),
+                  ),
+                  const Text(
+                    'Escenarios',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
             )
           ],
         )
@@ -42,6 +135,5 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size(120, 80);
-
+  Size get preferredSize => const Size(120, 60);
 }
