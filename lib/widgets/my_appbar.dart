@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty/utils/navigation.dart';
 
 class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {
+
+    void navigation(String value) {
+      navigator(context, value);
+    }
+
+
     return AppBar(
       title: Image.asset('../../assets/images/rick_and_morty/logo.png'),
       actions: [
@@ -13,20 +20,20 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
           onSelected: (value) => navigation(value),
           itemBuilder: (context) => [
             const PopupMenuItem(
-              child: Text('Contenido'),
               value: '',
+              child: Text('Contenido'),
             ),
             const PopupMenuItem(
-              child: Text('Personajes'),
               value: '/characters',
+              child: Text('Personajes'),
             ),
             const PopupMenuItem(
-              child: Text('Episodios'),
               value: '/episodes',
+              child: Text('Episodios'),
             ),
             const PopupMenuItem(
-              child: Text('Escenarios'),
               value: '/locations',
+              child: Text('Escenarios'),
             )
           ],
         )
@@ -37,5 +44,4 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size(120, 80);
 
-  navigation(String value) {}
 }
