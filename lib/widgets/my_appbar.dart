@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/theme/my_colors.dart';
 import 'package:rick_and_morty/utils/navigation.dart';
 
+import 'my_header.dart';
+
 class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppbar({super.key});
 
@@ -36,7 +38,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                     child: Text(
                       'Contenido',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         foreground: Paint()
                           ..style = PaintingStyle.stroke
                           ..strokeWidth = 2
@@ -48,7 +50,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                     child: Text(
                       'Contenido',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
                         color: Colors.white,
                       ),
                     ),
@@ -63,7 +65,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                   Text(
                     'Personajes',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 2
@@ -73,7 +75,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                   const Text(
                     'Personajes',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
@@ -87,7 +89,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                   Text(
                     'Episodios',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 2
@@ -97,7 +99,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                   const Text(
                     'Episodios',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
@@ -111,7 +113,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                   Text(
                     'Escenarios',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       foreground: Paint()
                         ..style = PaintingStyle.stroke
                         ..strokeWidth = 2
@@ -121,7 +123,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
                   const Text(
                     'Escenarios',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
