@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rick_and_morty/models/episode_model.dart';
 import 'package:rick_and_morty/providers/episode_provider.dart';
+import 'package:rick_and_morty/widgets/my_appbar.dart';
 
 class EpisodesPage extends StatefulWidget {
   const EpisodesPage({super.key});
@@ -15,9 +16,7 @@ class _EpisodesPageState extends State<EpisodesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Characters'),
-      ),
+      appBar: const MyAppbar(),
       body: FutureBuilder(
           future: episodes,
           builder: (context, snapshot) {
