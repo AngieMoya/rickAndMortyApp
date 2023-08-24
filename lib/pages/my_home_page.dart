@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rick_and_morty/widgets/about_rickandmorty.dart';
 import 'package:rick_and_morty/widgets/my_appbar.dart';
 import 'package:rick_and_morty/widgets/my_header.dart';
 
@@ -14,7 +15,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppbar(),
-      body: ListView(children: [MyHeader()]),
+      body: ListView(children: [MyHeader(), AboutRickAndMorty()]),
     );
   }
 }
