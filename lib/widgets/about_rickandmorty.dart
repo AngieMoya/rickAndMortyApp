@@ -84,7 +84,7 @@ class AboutRickAndMorty extends StatelessWidget {
           ),
           Image.asset(
             'assets/images/rick_and_morty/sticker.png',
-            width: 130,
+            width: 120,
           )
         ],
       ),
