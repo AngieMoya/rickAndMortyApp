@@ -32,7 +32,26 @@ class CharacterCard extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 16),
                 child: Text(
                   character.name,
+
                   style: const TextStyle(fontSize: 24),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.circle, 
+                      color: character.status == 'unknown' ? Colors.blueGrey : character.status == 'Alive' ? Colors.green : Colors.red,
+                      size: 15,
+                    ),
+                    const SizedBox(width: 10,),
+                    Text(
+                      '${character.status} - ${character.species}',
+                      style: const TextStyle(fontSize: 16, fontFamily: 'Inder'),
+                    ),
+                  ],
                 ),
               )
             ],
