@@ -35,7 +35,7 @@ class _EpisodesPageState extends State<EpisodesPage> {
                       itemCount: snapshot.data!.length,
                       itemBuilder: (context, index) {
                         return EpisodeCard(
-                          character: snapshot.data![index],
+                          episode: snapshot.data![index],
                         );
                       },
                     ),
