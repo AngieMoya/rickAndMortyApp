@@ -31,6 +31,7 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
           )),
       actions: [
         PopupMenuButton(
+          constraints: const BoxConstraints(minWidth: 200),
           color: MyMaterialColor.myColor.withAlpha(99),
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8))),
