@@ -7,7 +7,7 @@ class MyHeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 240,
+      width: MediaQuery.of(context).size.width,
       height: 240,
       decoration: BoxDecoration(
         image: DecorationImage(

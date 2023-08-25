@@ -16,14 +16,21 @@ class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: MyMaterialColor.mySecondColor,
       title: InkWell(
-        onTap: () {
-          Navigator.pushReplacementNamed(context, '/');
-        },
-        child: Image.asset(
-          'assets/images/rick_and_morty/logo.png',
-          width: 50,
-        ),
-      ),
+          onTap: () {
+            Navigator.pushReplacementNamed(context, '/');
+          },
+          child: Row(
+            children: [
+              Image.asset(
+                'assets/images/rick_and_morty/logo.png',
+                width: 50,
+              ),
+              const Text(
+                ' Rick and Morty',
+                style: TextStyle(color: MyMaterialColor.myColor),
+              )
+            ],
+          )),
       actions: [
         PopupMenuButton(
           color: MyMaterialColor.myColor.withAlpha(99),
