@@ -25,14 +25,26 @@ class LocationCard extends StatelessWidget {
             children: [
               Text(character.name, style: const TextStyle(fontSize: 24),),
               const SizedBox(height: 10,),
-              Text('Tipo: ${character.type}', style: const TextStyle(fontSize: 16, fontFamily: 'Inder')), 
+              myText('Tipo: ', character.type),
               const SizedBox(height: 10,),
-              Text('Dimension: ${character.dimension}', style: const TextStyle(fontSize: 16, fontFamily: 'Inder')),
+              myText('Dimension: ', character.dimension),
               const SizedBox(height: 10,),
-              Text('Residentes: ${character.residents.length.toString()}' , style: const TextStyle(fontSize: 16, fontFamily: 'Inder')),
+              myText('Residentes: ', character.residents.length.toString()),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  RichText myText(String key, String value) {
+    return RichText(
+      text: TextSpan(
+        style: const TextStyle(fontSize: 16, fontFamily: 'Inder', color: Colors.black),
+        children: [
+          TextSpan(text: key, style: const TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: value),
+        ]
       ),
     );
   }
