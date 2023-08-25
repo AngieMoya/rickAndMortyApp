@@ -17,7 +17,7 @@ class MyHeader extends StatelessWidget implements PreferredSizeWidget {
               ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.darken),
         ),
       ),
-      child: InfoHeaderHome(),
+      child: const InfoHeaderHome(),
     );
   }
 

@@ -10,16 +10,16 @@ class AboutRickAndMorty extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            margin: EdgeInsets.all(36),
+            margin: const EdgeInsets.all(36),
             width: 320,
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
                 border: Border.all(color: MyMaterialColor.myColor, width: 3),
                 borderRadius: BorderRadius.circular(8)),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 32, top: 20),
+                  padding: const EdgeInsets.only(bottom: 32, top: 20),
                   child: Stack(
                     children: [
                       Text(
@@ -51,7 +51,7 @@ class AboutRickAndMorty extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 28, top: 28),
+                  padding: const EdgeInsets.only(bottom: 28, top: 28),
                   child: Stack(
                     children: [
                       Text(

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/theme/my_colors.dart';
 import 'package:rick_and_morty/utils/navigation.dart';
 
-import 'my_header.dart';
-
 class MyAppbar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppbar({super.key});
 
