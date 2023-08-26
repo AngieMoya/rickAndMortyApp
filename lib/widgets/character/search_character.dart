@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/my_colors.dart';
 
 class SearchCharacters extends StatefulWidget {
-  SearchCharacters({super.key});
+  const SearchCharacters({super.key});
 
   @override
   State<SearchCharacters> createState() => _SearchCharactersState();

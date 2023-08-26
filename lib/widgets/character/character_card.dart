@@ -18,16 +18,16 @@ class CharacterCard extends StatelessWidget {
           elevation: 5,
           child: Column(
             children: [
-              // Padding(
-              //   padding: const EdgeInsets.all(16),
-              //   child: ClipRRect(
-              //     borderRadius: BorderRadius.circular(8),
-              //     child: Image.network(
-              //       character.image,
-              //       width: 200,
-              //     ),
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.network(
+                    character.image,
+                    width: 200,
+                  ),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: Text(

@@ -39,7 +39,7 @@ class _CharactersPageState extends State<CharactersPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppbar(),
-      body: ListView(
+      body: Column(
         children: [
           const MyHeaderCharacter(),
           SafeArea(
