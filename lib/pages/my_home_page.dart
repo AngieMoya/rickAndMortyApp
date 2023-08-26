@@ -14,8 +14,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppbar(),
-      body: ListView(children: [MyHeader(), AboutRickAndMorty()]),
+      appBar: const MyAppbar(),
+      body: ListView(children: const [ MyHeader(), AboutRickAndMorty() ]),
     );
   }
 }
