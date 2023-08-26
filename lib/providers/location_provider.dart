@@ -5,11 +5,11 @@ import 'package:http/http.dart' as http;
 import 'package:rick_and_morty/models/location_model.dart';
 
 class LocationPrivoder {
-  final url = 'https://rickandmortyapi.com/api/location';
+  final url = 'https://rickandmortyapi.com/api/location?page=';
 
-  Future<List<LocationModel>> getAll() async {
+  Future<List<LocationModel>> getAll(page) async {
     List<LocationModel> characters = [];
-    final resp = await http.get(Uri.parse(url));
+    final resp = await http.get(Uri.parse('$url$page'));
     if (resp.statusCode == 200) {
       String body = utf8.decode(resp.bodyBytes);
       final jsonList = jsonDecode(body);
