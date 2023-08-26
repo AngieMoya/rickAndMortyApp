@@ -42,7 +42,7 @@ class InfoHeaderHome extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 24),
             ),
             Text(
-              '351',
+              '51',
               style: TextStyle(color: Colors.white, fontSize: 24),
             )
           ],
