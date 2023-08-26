@@ -84,4 +84,10 @@ class _EpisodesPageState extends State<EpisodesPage> {
       }
     });
   }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 }
