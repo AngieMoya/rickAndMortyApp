@@ -13,7 +13,31 @@ class EpisodesPage extends StatefulWidget {
 }
 
 class _EpisodesPageState extends State<EpisodesPage> {
-  late Future<List<EpisodeModel>> episodes;
+
+  late ScrollController _scrollController;
+  final List<EpisodeModel> _episodes = [];
+  
+  final int _maxLength = 51;
+  int page = 1;
+  bool isLoading = false;
+  bool hasMore = true;
+
+  _getEpisodes() async{
+    setState(() {
+      isLoading = true;
+    });
+
+    final episodes = await EpisodePrivoder().getAll(page);
+    for (var episode in episodes) {
+      _episodes.add(episode);
+    }
+
+    setState(() {
+      isLoading = false;
+      page += 1;
+      hasMore = _episodes.length < _maxLength;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,30 +46,23 @@ class _EpisodesPageState extends State<EpisodesPage> {
       body: Column(
         children: [
           const MyHeaderEpisodes(),
-          FutureBuilder(
-              future: episodes,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height - 345,
-                    child: ListView.separated(
-                      separatorBuilder: (context, index) => const SizedBox(
-                        height: 10,
-                      ),
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return EpisodeCard(
-                          episode: snapshot.data![index],
-                        );
-                      },
-                    ),
+          SafeArea(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height - 345,
+              child: ListView.separated(
+                controller: _scrollController,
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 10,
+                ),
+                itemCount: _episodes.length,
+                itemBuilder: (context, index) {
+                  return EpisodeCard(
+                    episode: _episodes[index],
                   );
-                } else if (snapshot.hasError) {
-                  return const Text('Error');
-                }
-
-                return const Center(child: CircularProgressIndicator());
-              }),
+                },
+              ),
+            )
+          ),
         ],
       ),
     );
@@ -54,6 +71,17 @@ class _EpisodesPageState extends State<EpisodesPage> {
   @override
   void initState() {
     super.initState();
-    episodes = EpisodePrivoder().getAll();
+    _getEpisodes();
+
+    _scrollController = ScrollController();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >=
+              _scrollController.position.maxScrollExtent &&
+          !isLoading) {
+        if (hasMore) {
+          _getEpisodes();
+        }
+      }
+    });
   }
 }
