@@ -6,11 +6,11 @@ import 'package:rick_and_morty/models/character_model.dart';
 
 class CharacterPrivoder{
 
-  final url = 'https://rickandmortyapi.com/api/character';
+  final url = 'https://rickandmortyapi.com/api/character?page=';
 
-  Future<List<CharacterModel>> getAll() async {
+  Future<List<CharacterModel>> getAll(page) async {
     List<CharacterModel> characters = [];
-    final resp = await http.get(Uri.parse(url));
+    final resp = await http.get(Uri.parse('$url$page'));
     if (resp.statusCode == 200) {
       String body = utf8.decode(resp.bodyBytes);
       final jsonList = jsonDecode(body);

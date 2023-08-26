@@ -13,7 +13,28 @@ class CharactersPage extends StatefulWidget {
 }
 
 class _CharactersPageState extends State<CharactersPage> {
-  late Future<List<CharacterModel>> characters;
+
+  late ScrollController _scrollController;
+  final List<CharacterModel> _characters = [];
+  final int _maxLength = 826;
+  int page = 1;
+  bool isLoading = false;
+  bool hasMore = true;
+
+  _getCharacters() async{
+    setState(() {
+      isLoading = true;
+    });
+    final characters = await CharacterPrivoder().getAll(page);
+    for (var character in characters) {
+      _characters.add(character);
+    }
+    setState(() {
+      isLoading = false;
+      page += 1;
+      hasMore = _characters.length < _maxLength;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,30 +43,30 @@ class _CharactersPageState extends State<CharactersPage> {
       body: Column(
         children: [
           const MyHeader(),
-          FutureBuilder(
-              future: characters,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return SizedBox(
-                    height: MediaQuery.of(context).size.height - 345,
-                    child: ListView.separated(
-                      separatorBuilder: (context, index) => const SizedBox(
-                        height: 10,
+          SafeArea(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height - 345,
+              child: ListView.separated(
+                controller: _scrollController,
+                separatorBuilder: (context, index) => const SizedBox( height: 10 ),
+                itemCount: _characters.length,
+                itemBuilder: (context, index) {
+                  if (index == _characters.length) {
+                    return const SizedBox(
+                      width: 60,
+                      height: 60,
+                      child: FittedBox(
+                        child: CircularProgressIndicator(),
                       ),
-                      itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) {
-                        return CharacterCard(
-                          character: snapshot.data![index],
-                        );
-                      },
-                    ),
+                    );
+                  }
+                  return CharacterCard(
+                    character: _characters[index],
                   );
-                } else if (snapshot.hasError) {
-                  return const Text('Error');
-                }
-
-                return const Center(child: CircularProgressIndicator());
-              }),
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -54,7 +75,23 @@ class _CharactersPageState extends State<CharactersPage> {
   @override
   void initState() {
     super.initState();
-    characters = CharacterPrivoder().getAll();
+    _getCharacters();
+
+    _scrollController = ScrollController();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent && !isLoading) {
+        if (hasMore) {
+          _getCharacters();
+        }
+      }
+    });
   }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
 }
 
