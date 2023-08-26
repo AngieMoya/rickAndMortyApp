@@ -13,7 +13,7 @@ class LocationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 44, right: 44, top: 3, bottom: 3),
+      padding: const EdgeInsets.only(left: 44, right: 44, top: 20, bottom: 3),
       child: Card(
         color: MyMaterialColor.myColor[300],
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
@@ -23,12 +23,25 @@ class LocationCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(character.name, style: const TextStyle(fontSize: 24),),
-              const SizedBox(height: 10,),
+              Text(
+                character.name,
+                style: const TextStyle(
+                    fontSize: 24,
+                    fontFamily: 'Inder',
+                    fontWeight: FontWeight.w600,
+                    color: MyMaterialColor.mySecondColor),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               myText('Tipo: ', character.type),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               myText('Dimension: ', character.dimension),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               myText('Residentes: ', character.residents.length.toString()),
             ],
           ),
@@ -40,13 +53,13 @@ class LocationCard extends StatelessWidget {
   RichText myText(String key, String value) {
     return RichText(
       text: TextSpan(
-        style: const TextStyle(fontSize: 16, fontFamily: 'Inder', color: Colors.black),
-        children: [
-          TextSpan(text: key, style: const TextStyle(fontWeight: FontWeight.bold)),
-          TextSpan(text: value),
-        ]
-      ),
+          style: const TextStyle(
+              fontSize: 16, fontFamily: 'Inder', color: Colors.black),
+          children: [
+            TextSpan(
+                text: key, style: const TextStyle(fontWeight: FontWeight.bold)),
+            TextSpan(text: value),
+          ]),
     );
   }
 }
-

@@ -5,13 +5,13 @@ import 'package:rick_and_morty/theme/my_colors.dart';
 class EpisodeCard extends StatelessWidget {
   final EpisodeModel episode;
 
-  String getSeason(String code){
+  String getSeason(String code) {
     int index = code.indexOf('E');
     String season = code.substring(1, index);
     return season;
   }
 
-  String getChapter(String code){
+  String getChapter(String code) {
     int index = code.indexOf('E');
     String chapter = code.substring(index + 1, code.length);
     return chapter;
@@ -25,9 +25,10 @@ class EpisodeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 44, right: 44, top: 3, bottom: 3),
+      padding: const EdgeInsets.only(left: 44, right: 44, top: 20, bottom: 3),
       child: Card(
-        color: MyMaterialColor.mySecondColor,
+        shadowColor: MyMaterialColor.myColor,
+        color: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         elevation: 5,
         child: Padding(
@@ -35,12 +36,25 @@ class EpisodeCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(episode.name, style: const TextStyle(fontSize: 24, color: Colors.white),),
-              const SizedBox(height: 10,), 
+              Text(
+                episode.name,
+                style: const TextStyle(
+                    fontSize: 24,
+                    color: MyMaterialColor.myColor,
+                    fontFamily: 'Inder',
+                    fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
               myText('Capitulo: ', getChapter(episode.episode)),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               myText('Temporada: ', getSeason(episode.episode)),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               myText('Personajes: ', episode.characters.length.toString()),
             ],
           ),
@@ -52,14 +66,13 @@ class EpisodeCard extends StatelessWidget {
   RichText myText(String key, String value) {
     return RichText(
       text: TextSpan(
-        style: const TextStyle(fontSize: 16, fontFamily: 'Inder', color: Colors.white),
-        children: [
-          TextSpan(text: key, style: const TextStyle(fontWeight: FontWeight.bold)),
-          TextSpan(text: value),
-        ]
-      ),
+          style: const TextStyle(
+              fontSize: 16, fontFamily: 'Inder', color: Colors.black),
+          children: [
+            TextSpan(
+                text: key, style: const TextStyle(fontWeight: FontWeight.bold)),
+            TextSpan(text: value),
+          ]),
     );
   }
 }
-
-

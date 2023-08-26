@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/models/episode_model.dart';
 import 'package:rick_and_morty/providers/episode_provider.dart';
 import 'package:rick_and_morty/widgets/episode/episode_card.dart';
+import 'package:rick_and_morty/widgets/episode/header_episode.dart';
 import 'package:rick_and_morty/widgets/my_appbar.dart';
 import 'package:rick_and_morty/widgets/my_header.dart';
 
@@ -21,7 +22,7 @@ class _EpisodesPageState extends State<EpisodesPage> {
       appBar: const MyAppbar(),
       body: Column(
         children: [
-          const MyHeader(),
+          const MyHeaderEpisodes(),
           FutureBuilder(
               future: episodes,
               builder: (context, snapshot) {
