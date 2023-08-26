@@ -5,12 +5,12 @@ class InfoHeaderHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               'Personajes',
               style: TextStyle(color: Colors.white, fontSize: 24),
@@ -23,7 +23,7 @@ class InfoHeaderHome extends StatelessWidget {
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               'Lugares',
               style: TextStyle(color: Colors.white, fontSize: 24),
@@ -36,7 +36,7 @@ class InfoHeaderHome extends StatelessWidget {
         ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               'Episodios',
               style: TextStyle(color: Colors.white, fontSize: 24),

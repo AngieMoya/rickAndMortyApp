@@ -16,9 +16,9 @@ class MyHeaderLocations extends StatelessWidget implements PreferredSizeWidget {
               ColorFilter.mode(Colors.black.withOpacity(0.6), BlendMode.darken),
         ),
       ),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const [
+        children: [
           Padding(
             padding: EdgeInsets.only(left: 20, bottom: 30, top: 20),
             child: Align(
